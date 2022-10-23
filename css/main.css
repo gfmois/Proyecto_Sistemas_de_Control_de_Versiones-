@@ -77,6 +77,8 @@ header .navbar li:hover {
 .wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 article {
@@ -88,6 +90,8 @@ article {
   background-color: rgba(195, 191, 191, 0.611);
   margin-top: 2%;
   padding: 15px;
+  margin-bottom: 20%;
+  margin-top: 8%;
 }
 
 .article_title {
