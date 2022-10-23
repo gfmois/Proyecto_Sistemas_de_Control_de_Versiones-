@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header_title">Actvidad Final Moisés Guerola</div>
+    <ul class="navbar">
+      <li><a href="#whats_gflow">Que es GFlow</a></li>
+      <li><a href="#rep_gflow">Repositorio e inicio de GFlow</a></li>
+      <li><a href="#husky">Creación Hooks Husky</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#final">Arbol</a></li>
+    </ul>
+  </header>
+
+  <div class="wrapper">
+    <article>
+      <div id="whats_gflow" class="title">Que es GitFlow</div>
+      <div class="body">
+        Git es el sistema de control de versiones más utilizado del mundo. Este es un proyecto de código abierto y con
+        mantenimiento activo desarrollado principalmente por Linus Torvalds, el creador del kernel de Linux. Su diseño
+        fue basado en BitKeeper y en Monotone. <br><br>
+
+        Git Flow es un modelo alternativo de creación de ramas Git publicado por primera vez y popularizado por Vincent
+        Driessen en nvie en la que se utilizan ramas de función y varias ramas principales. GitFlow puede utilizarse en
+        proyectos de entrega continua. <br>
+        En vez de gastar una única rama este utiliza dos, “main” y “develop”, main es la que se encarga de almacenar el
+        historial de publicaciones oficial y la rama develop es la que se encarga como rama de integración para las
+        funciones.
+        <img src="img/01.png" alt=""><br><br><br>
+        Las ramas de función utilizan la rama develop como rama primaria y de ahí cuando una función está terminada se
+        vuelve a fusionar con develop. Las funciones no deben interactuar nunca directamente con la rama main.
+        <img src="img/02.png" alt="">
+        Cuando la rama de develop haya tenido suficientes funciones como para una publicación se crea una rama “release”
+        a partir de develop. Una vez creada esta rama no se pueden añadir nuevas funciones, solamente soluciones de
+        errores, generación de documentación u otras tareas orientadas a la publicación de esta. Cuando la rama
+        “release” esté lista esta se fusiona con la rama main y se etiqueta con el número de versión.
+        <img src="img/03.png" alt="">
+        La rama de corrección o “hotfix” sirve para reparar rápidamente las publicaciones de producción. La rama
+        “hotfix” es muy similar a las ramas “release” y “feature” solametnte que esta actua sobre la rama “main” y no
+        sobre la rama “develop”.
+        <img src="img/04.png" alt="">
+        En general, gitflow es ideal para proyectos basados en publicaciones y sobretodo ideal por su canal para las
+        correciones de producción, “hotflix”
+      </div>
+    </article>
+    <article>
+      <div id="rep_gflow" class="title">Creación del repositorio y del GitFlow</div>
+      <div class="body">
+        Para empezar, inicializamos el repositorio y le asignamos el remoto.
+        <img src="img/p_1.png" alt="">
+
+        Ahora creamos la rama “develop” y inicalizamos con el boilplate en la rama main para una vez creado la cabezera,
+        la barra de navegación y el footer y subido la estructura inicial empezar con gitflow y pasarse a la rama
+        develop. <br><br>
+
+        Creación del template de estructura inicial que contendrá la cabezera, la barra de navegación, el footer y la
+        brave descripción del curso. <br><br>
+        <img src="img/p_2.png" alt="">
+
+        Template con el home con breve introducción a JS y al curso, una pequeña explicación sobre lo que puede hacer
+        JavaScript, su inventor y cofundador y ejemplos de lo que se puede llegar a crear con Javascript
+        <img src="img/p_3.png" alt="">
+      </div>
+    </article>
+
+    <article>
+      <div id="husky" class="title">Creación Hooks Husky</div>
+      <div class="body">
+        <h1>Primer Hook</h1>
+        Creación del hook y testeo, el script tiene dos variables, la primera coge mediante la variable $1 el mensaje y
+        la segunda variable es el redux que gastará el script para comparar. <br>
+        Una vez ejecutado mirará si estamos en la rama “hotfix” y si estamos comprobará que el commit tiene en su
+        mensaje “A corregir por ” sino mandará un mensaje de error y saldrá con error 1 para que no se envíe el commit
+        <img src="img/p_4.png" alt="">
+        <img src="img/p_5.png" alt="">
+
+        <h2>Segundo Hook</h2>
+        Escogemos el dibujo desde la página, yo he escogido el dibujo del pingüino de Linux, creamos el hook con el
+        comando “npx husky add ./husky/post-checkout” y metemos el dibujo en el hook tal que así:
+        <img src="img/p_6.png" alt="">
+        Y cambiamos de rama para probar
+        <img src="img/p_7.png" alt="">
+        Una vez probado lo subimos a GitHub y creamos un “pull request” sobre la rama “develop”
+        <img src="img/p_8.png" alt="">
+        Lo aceptamos y se hará el merge con la rama develop
+      </div>
+    </article>
+
+    <article>
+      <div id="features" class="title">Creación de las Features</div>
+      <div class="body">
+        <h1>ContenidoHTML</h1>
+        Creamos la feature del contenidoHTML, añadimos el nuevo contenido con el ejemplo de JavaScript en la rama
+        feature_1:
+        <img src="img/p_9.png" alt="">
+
+        Una vez añadido hacemos lo mismo, lo subimos al GitHub y así con el “git commit” comprobamos si funciona el
+        hook:
+        <img src="img/p_10.png" alt="">
+        El hook funciona y ahora desde GHub creamos el Pull Request y lo aceptamos
+        <img src="img/p_11.png" alt="">
+
+        <h1>AtributosHTMl</h1>
+        Creamos la nueva rama de la feature llamada “feature_2” y dentro empezamos a crear el html con el ejemplo de
+        atributos en js, generamos el pull request y lo aceptamos:
+        <img src="img/p_12.png" alt="">
+
+        <h1>Creación del Hook Con Husky</h1>
+        Instalamos el plugin de linter con el comando “npm install --save-dev eslint-plugin-html” y una vez instalado
+        generamos el nuevo hook con el comando “npx husky add .husky/pre-commit”. Una vez generado simplemente dentro
+        del hook ponemos lo siguiente:
+        <img src="img/p_13.png" alt="">
+
+        Que sirve para ejecutar el eslint, pero antes tenemos que crear un archivo de configuración del eslint, en el
+        inicio de la carpeta creamos un archivo llamado “.eslintrc.json” y dentro ponemos la siguiente configuración:
+        <img src="img/p_14.png" alt="">
+      </div>
+    </article>
+
+    <article>
+      <div class="title">Feature EstilosCSS</div>
+      <div class="body">
+        Creamos la rama “feature_2” y ponemos el código html y el ejemplo js y creamos el pull request:
+        <img src="img/p_15.png" alt="">
+        Una vez añadido el feature creamos un merge de reléase a main y a develop y una rama a partir de la rama develop
+        llamada release de la cual con el comando “git tag version id” añadimos el tag “v1.0” al último commit y lo subimos tanto el commit como el tag con el comando “git
+        push origin release ” y “git push origin v1.0”. <br>
+        Una vez hecho eso en github al lado sale la opción de crear release, le damos y nos aparece esta pantalla:
+        <img src="img/p_16.png" alt="">
+
+        Le damos y nos saldrá las mejoras que ha tenido esta nueva versión: 
+        <img src="img/p_17.png" alt="">
+      </div>
+    </article>
+
+    <article>
+      <div id="final" class="title">Hotfix Mejora Tag</div>
+      <div class="body">
+        Añadimos una mejora al estilo CSS y creamos el commit para el hotfix, una vez hecho el commit desde GHub hacemos un merge a main y el hotfix estaría hecho
+        <img src="img/p_18.png" alt="">
+        <br><br><br>
+
+        FEATURES Y HOTFIXES DE TODO
+        <img src="img/tree.png" alt="">
+      </div>
+    </article>
+  </div>
+</body>
+</html>
