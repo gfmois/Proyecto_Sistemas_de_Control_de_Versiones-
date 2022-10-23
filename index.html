@@ -28,6 +28,8 @@
     <div class="header_title">Proyecto Sistemas Control de Versiones</div>
     <ul class="navbar">
       <li><a href="#home">Home</a></li>
+      <li><a href="#mod_cont_html">Modificar contenido HTML</a></li>
+      <li><a href="#mod_atr_html">Modificar atributos HTML</a></li>
     </ul>
   </header>
 
@@ -54,6 +56,31 @@
           <li>Modificar atributos HTML</li>
           <li>Modificar estilos CSS</li>
         </ol>
+      </div>
+    </article>
+    <article id="mod_cont_html">
+      <div class="article_title">Modificar contenido HTML</div>
+      <div class="article_text">
+        Con JavaScript puedes modificar el contenido HTML a tu gusto, se pueden cambiar textos con un solo click, crear nuevos textos, eliminar antiguos y mucho más.<br>
+        A continuación un ejemplo de lo que se puede hacer:<br><br>
+        <button onclick='document.getElementById("text").innerHTML = "Hola! Hemos cambiado el contenido del texto normal y corriente :)"' >Pulsa sobre mi</button><br><br>
+        <p id="text">Aquí un texto normal y corriente</p>
+        <br><br>
+
+        <p>Y para ello solamente hemos asignado un id al texto y ejecutado este trocito de código en el evento del botón "onclick":</p>
+        <p style="font-size: 14px; font-weight: 800;">document.getElementById("text").innerHTML = "Hola! Hemos cambiado el contenido del texto normal y corriente :)"</p>
+      </div>
+    </article>
+    <article id="mod_atr_html">
+      <div class="article_title">Modificar Atributos HTML</div>
+      <div class="article_text">
+        Con JavaScript puedes modificar los Atributos de las etiquetas HTML a tu gusto, se pueden habilitar o deshabilitar botones, checkboxes, inputs y demás.<br>
+        A continuación un ejemplo de lo que se puede hacer:<br><br>
+        <button id="btn" onclick='document.getElementById("btn").setAttribute("disabled","")'>Pulsa para deshabilitar</button><br><br>
+        <br><br>
+
+        <p>Y para ello solamente hemos asignado un id al texto y ejecutado este trocito de código en el evento del botón "onclick":</p>
+        <p style="font-size: 14px; font-weight: 800;">document.getElementById("btn").setAttribute("disabled","")"</p>
       </div>
     </article>
   </div>
